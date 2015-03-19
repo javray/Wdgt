@@ -1,4 +1,4 @@
-package com.javray.cordova.plugin;
+package com.ionicframework.emergenciaa941042;
 
 import java.util.Random;
 
@@ -10,8 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.RemoteViews;
-
-import android.R;
 
 public class Wdgt extends AppWidgetProvider {
 
