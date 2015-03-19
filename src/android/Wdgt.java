@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+import android.R;
+
 public class Wdgt extends AppWidgetProvider {
 
   private static final String ACTION_CLICK = "ACTION_CLICK";
