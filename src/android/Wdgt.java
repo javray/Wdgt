@@ -11,7 +11,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-public class MyWidgetProvider extends AppWidgetProvider {
+public class Wdgt extends AppWidgetProvider {
 
   private static final String ACTION_CLICK = "ACTION_CLICK";
 
@@ -21,7 +21,7 @@ public class MyWidgetProvider extends AppWidgetProvider {
 
     // Get all ids
     ComponentName thisWidget = new ComponentName(context,
-        MyWidgetProvider.class);
+        Wdgt.class);
     int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
     for (int widgetId : allWidgetIds) {
       // create some random data
@@ -34,7 +34,7 @@ public class MyWidgetProvider extends AppWidgetProvider {
       remoteViews.setTextViewText(R.id.update, String.valueOf(number));
 
       // Register an onClickListener
-      Intent intent = new Intent(context, MyWidgetProvider.class);
+      Intent intent = new Intent(context, Wdgt.class);
 
       intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
       intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
