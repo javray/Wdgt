@@ -84,6 +84,11 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       return null;
   }
 
+ @Override
+  public void onCreate() {
+
+  }
+
   @Override
   public void onDestroy() {
 
