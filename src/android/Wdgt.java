@@ -57,12 +57,10 @@ public class Wdgt extends AppWidgetProvider {
 
       Log.v("Wdgt", Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)).toString());
 
-      remoteViews.setRemoteAdapter(widgetId, R.id.datos, svcIntent);
 
-      /*
       remoteViews.setTextViewText(R.id.nombre, nombre);
       remoteViews.setImageViewUri(R.id.foto, foto);
-      */
+      remoteViews.setRemoteAdapter(widgetId, R.id.datos, svcIntent);
 
       // Register an onClickListener
       Intent intent = new Intent(context, Wdgt.class);
