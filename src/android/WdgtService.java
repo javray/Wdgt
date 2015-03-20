@@ -1,4 +1,4 @@
-package $PACKAGE_NAME;
+package com.ionicframework.emergenciaa941042;
 
 import android.content.Intent;
 import android.widget.RemoteViewsService;

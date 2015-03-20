@@ -1,4 +1,4 @@
-package $PACKAGE_NAME;
+package com.ionicframework.emergenciaa941042;
 
 import java.util.Random;
 
@@ -14,14 +14,11 @@ import android.widget.RemoteViews;
 import android.content.SharedPreferences;
 import android.net.Uri;
 
-
-
 public class Wdgt extends AppWidgetProvider {
 
-  public static String EXTRA_DATA = "$PACKAGE_NAME.DATA";
+  public static String EXTRA_DATA = "com.ionicframework.emergenciaa941042.DATA";
 
   private static final String ACTION_CLICK = "ACTION_CLICK";
-  private static final ArrayList<Datos> sData = new ArrayList<Datos>();
 
   @Override
   public void onUpdate(Context context, AppWidgetManager appWidgetManager,
@@ -45,14 +42,6 @@ public class Wdgt extends AppWidgetProvider {
       foto = Uri.parse("http://lorempixel.com/80/80");
     }
 
-    sData.add(new Datos("Persona de contacto", 1));
-
-    if (SharedPref.contains("contacto")) {
-      contacto = SharedPref.getString("contacto", "");
-    }
-
-    sData.add(new Datos(contacto, 0));
-
     // Get all ids
     ComponentName thisWidget = new ComponentName(context,
         Wdgt.class);
@@ -62,15 +51,15 @@ public class Wdgt extends AppWidgetProvider {
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
           R.layout.widget_layout);
 
-      Intent intent2 = new Intent(context, Wdgt.class);
-      intent2.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
-      intent2.setData(sData);
+      Intent svcIntent = new Intent(ctxt, WdgtService.class);
+      svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
+      svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));
+
+      remoteViews.setRemoteAdapter(widgetId, R.id.datos,
+                              svcIntent);
 
       remoteViews.setTextViewText(R.id.nombre, nombre);
       remoteViews.setImageViewUri(R.id.foto, foto);
-
-      remoteViews.setRemoteAdapter(widgetId, R.id.datos, intent2);
-
 
       // Register an onClickListener
       Intent intent = new Intent(context, Wdgt.class);
