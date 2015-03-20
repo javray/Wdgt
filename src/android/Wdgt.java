@@ -25,6 +25,7 @@ public class Wdgt extends AppWidgetProvider {
     SharedPreferences SharedPref;
     String nombre = "";
     Uri foto;
+    String contacto = "";
 
     SharedPref = context.getSharedPreferences("datos", 0);
 
@@ -39,6 +40,10 @@ public class Wdgt extends AppWidgetProvider {
       foto = Uri.parse("http://lorempixel.com/80/80");
     }
 
+    if (SharedPref.contains("contacto")) {
+      nombre = SharedPref.getString("contacto", "");
+    }
+
     // Get all ids
     ComponentName thisWidget = new ComponentName(context,
         Wdgt.class);
@@ -50,6 +55,7 @@ public class Wdgt extends AppWidgetProvider {
 
       remoteViews.setTextViewText(R.id.nombre, nombre);
       remoteViews.setImageViewUri(R.id.foto, foto);
+      remoteViews.setTextViewText(R.id.contacto, contacto);
 
       // Register an onClickListener
       Intent intent = new Intent(context, Wdgt.class);

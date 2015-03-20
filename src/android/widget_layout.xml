@@ -19,7 +19,7 @@
       android:id="@+id/layout"
       android:layout_width="match_parent"
       android:layout_height="80dip"
-      android:layout_marginLeft="25dip">
+      android:layout_marginLeft="15dip">
 
       <ImageView
         android:id="@+id/foto"
@@ -48,5 +48,14 @@
           android:textColor="#fff"
           android:background="#ef473a"
           android:text=" Persona de contacto" >
+    </TextView>
+    <TextView
+          android:id="@+id/contacto"
+          style="@android:style/TextAppearance.Medium"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textColor="#000"
+          android:background="#fff"
+          android:text="Contacto" >
     </TextView>
 </GridLayout>
