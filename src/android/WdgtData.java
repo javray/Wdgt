@@ -49,7 +49,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     sData.add(new DataElement("Persona de contacto", 1));
     sData.add(new DataElement(contacto, 0));
 
-    Log.v("Wdgt", sData.size());
+    Log.v("Wdgt", Integer.toString(sData.size()));
   }
 
   @Override
