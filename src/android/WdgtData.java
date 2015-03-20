@@ -55,14 +55,14 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
   @Override
   public int getCount() {
-    return(sData.length);
+    return(sData.size());
   }
 
   @Override
   public RemoteViews getViewAt(int position) {
     RemoteViews row=new RemoteViews(ctxt.getPackageName(),
                                      R.layout.row);
-    row.setTextViewText(android.R.id.text1, sData.get(position));
+    row.setTextViewText(android.R.id.text1, sData.get(position).text);
 
     Intent i=new Intent();
     Bundle extras=new Bundle();
