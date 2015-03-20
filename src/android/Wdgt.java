@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+import android.content.SharedPreferences;
+
 public class Wdgt extends AppWidgetProvider {
 
   private static final String ACTION_CLICK = "ACTION_CLICK";
@@ -18,6 +20,14 @@ public class Wdgt extends AppWidgetProvider {
   @Override
   public void onUpdate(Context context, AppWidgetManager appWidgetManager,
       int[] appWidgetIds) {
+
+    SharedPreferences SharedPref;
+    String nombre = "";
+
+    SharedPref = context.getSharedPreferences("datos", 0);
+    if (SharedPref.contains("nombre")) {
+      nombre = SharedPref.getString("nombre", "");
+    }
 
     // Get all ids
     ComponentName thisWidget = new ComponentName(context,
@@ -31,7 +41,8 @@ public class Wdgt extends AppWidgetProvider {
           R.layout.widget_layout);
       Log.w("WidgetExample", String.valueOf(number));
       // Set the text
-      remoteViews.setTextViewText(R.id.update, String.valueOf(number));
+      //remoteViews.setTextViewText(R.id.update, String.valueOf(number));
+      remoteViews.setTextViewText(R.id.update, nombre);
 
       // Register an onClickListener
       Intent intent = new Intent(context, Wdgt.class);
