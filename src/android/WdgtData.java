@@ -88,4 +88,9 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   public void onDestroy() {
 
   }
+
+  @Override
+  public void onDataSetChanged() {
+    Log.v("Wdgt", "onDataSetChanged");
+  }
 }
