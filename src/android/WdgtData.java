@@ -78,4 +78,9 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   public int getViewTypeCount() {
       return 1;
   }
+
+ @Override
+  public RemoteViews getLoadingView() {
+      return null;
+  }
 }
