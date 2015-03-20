@@ -49,17 +49,8 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   }
 
   @Override
-  public void onCreate() {
-  }
-
-  @Override
-  public void onDestroy() {
-    // no-op
-  }
-
-  @Override
   public int getCount() {
-    return(sData.size());
+    return sData.size();
   }
 
   @Override
@@ -68,39 +59,13 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
                                      R.layout.row);
     row.setTextViewText(android.R.id.text1, sData.get(position).text);
 
-    Intent i=new Intent();
-    Bundle extras=new Bundle();
-
-    extras.putString(Wdgt.EXTRA_DATA, sData.get(position).text);
     Log.v("Wdgt", sData.get(position).text);
-    i.putExtras(extras);
-    row.setOnClickFillInIntent(android.R.id.text1, i);
 
-    return(row);
-  }
-
-  @Override
-  public RemoteViews getLoadingView() {
-    return(null);
-  }
-
-  @Override
-  public int getViewTypeCount() {
-    return(1);
+    return row;
   }
 
   @Override
   public long getItemId(int position) {
-    return(position);
-  }
-
-  @Override
-  public boolean hasStableIds() {
-    return(true);
-  }
-
-  @Override
-  public void onDataSetChanged() {
-    // no-op
+    return position;
   }
 }
