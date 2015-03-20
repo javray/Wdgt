@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import android.util.Log;
+
 import android.content.SharedPreferences;
 
 import java.util.ArrayList;
@@ -68,6 +70,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     Bundle extras=new Bundle();
 
     extras.putString(Wdgt.EXTRA_DATA, sData.get(position).text);
+    Log.v("Wdgt", sData.get(position).text);
     i.putExtras(extras);
     row.setOnClickFillInIntent(android.R.id.text1, i);
 
