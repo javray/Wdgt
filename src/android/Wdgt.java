@@ -1,4 +1,4 @@
-package com.ionicframework.emergenciaa941042;
+package $PACKAGE_NAME;
 
 import java.util.Random;
 
@@ -14,20 +14,11 @@ import android.widget.RemoteViews;
 import android.content.SharedPreferences;
 import android.net.Uri;
 
-import java.util.ArrayList;
-
-class Datos {
-  String texto;
-  int cabecera;
-
-  Datos(String t, Boolean c) {
-    texto = t;
-    cabecera = c;
-  }
-}
 
 
 public class Wdgt extends AppWidgetProvider {
+
+  public static String EXTRA_DATA = "$PACKAGE_NAME.DATA";
 
   private static final String ACTION_CLICK = "ACTION_CLICK";
   private static final ArrayList<Datos> sData = new ArrayList<Datos>();
