@@ -41,21 +41,12 @@
           android:text="Nombre" >
       </TextView>
     </LinearLayout>
-    <TextView
-          style="@android:style/TextAppearance.Medium"
-          android:layout_width="match_parent"
-          android:layout_height="25dip"
-          android:textColor="#fff"
-          android:background="#ef473a"
-          android:text=" Persona de contacto" >
-    </TextView>
-    <TextView
-          android:id="@+id/contacto"
-          style="@android:style/TextAppearance.Medium"
-          android:layout_width="match_parent"
-          android:layout_height="25dip"
-          android:textColor="#000"
-          android:background="#fff"
-          android:text="Contacto" >
-    </TextView>
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/datos"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="3dp"
+      android:layout_marginLeft="3dp"
+      android:background="#fff"
+    />
 </GridLayout>

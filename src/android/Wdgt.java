@@ -14,9 +14,23 @@ import android.widget.RemoteViews;
 import android.content.SharedPreferences;
 import android.net.Uri;
 
+import java.util.ArrayList;
+
+class Datos {
+  String texto;
+  Boolean cabecera;
+
+  Datos(String t, Boolean c) {
+    texto = t;
+    cabecera = c;
+  }
+}
+
+
 public class Wdgt extends AppWidgetProvider {
 
   private static final String ACTION_CLICK = "ACTION_CLICK";
+  private static final ArrayList<Datos> sData = new ArrayList<Datos>();
 
   @Override
   public void onUpdate(Context context, AppWidgetManager appWidgetManager,
@@ -40,9 +54,13 @@ public class Wdgt extends AppWidgetProvider {
       foto = Uri.parse("http://lorempixel.com/80/80");
     }
 
+    sData.add(new Datos("Persona de contacto", True);
+
     if (SharedPref.contains("contacto")) {
       contacto = SharedPref.getString("contacto", "");
     }
+
+    sData.add(new Datos(contacto, False);
 
     // Get all ids
     ComponentName thisWidget = new ComponentName(context,
@@ -53,9 +71,15 @@ public class Wdgt extends AppWidgetProvider {
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
           R.layout.widget_layout);
 
+      Intent intent2 = new Intent(context, Wdgt.class);
+      intent2.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
+      intent2.setData(sData);
+
       remoteViews.setTextViewText(R.id.nombre, nombre);
       remoteViews.setImageViewUri(R.id.foto, foto);
-      remoteViews.setTextViewText(R.id.contacto, contacto);
+
+      remoteViews.setRemoteAdapter(appWidgetIds[i], R.id.datos, intent2);
+
 
       // Register an onClickListener
       Intent intent = new Intent(context, Wdgt.class);
