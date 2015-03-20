@@ -19,8 +19,7 @@
     <ImageView
       android:id="@+id/foto"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content" 
-      android:src="http://lorempixel.com/80/80">
+      android:layout_height="wrap_content">
     </ImageView>
 
 </LinearLayout> 
