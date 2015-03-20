@@ -54,13 +54,13 @@ public class Wdgt extends AppWidgetProvider {
       foto = Uri.parse("http://lorempixel.com/80/80");
     }
 
-    sData.add(new Datos("Persona de contacto", True);
+    sData.add(new Datos("Persona de contacto", True));
 
     if (SharedPref.contains("contacto")) {
       contacto = SharedPref.getString("contacto", "");
     }
 
-    sData.add(new Datos(contacto, False);
+    sData.add(new Datos(contacto, False));
 
     // Get all ids
     ComponentName thisWidget = new ComponentName(context,
