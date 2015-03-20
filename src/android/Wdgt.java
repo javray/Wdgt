@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 class Datos {
   String texto;
-  Boolean cabecera;
+  int cabecera;
 
   Datos(String t, Boolean c) {
     texto = t;
@@ -54,13 +54,13 @@ public class Wdgt extends AppWidgetProvider {
       foto = Uri.parse("http://lorempixel.com/80/80");
     }
 
-    sData.add(new Datos("Persona de contacto", True));
+    sData.add(new Datos("Persona de contacto", 1));
 
     if (SharedPref.contains("contacto")) {
       contacto = SharedPref.getString("contacto", "");
     }
 
-    sData.add(new Datos(contacto, False));
+    sData.add(new Datos(contacto, 0));
 
     // Get all ids
     ComponentName thisWidget = new ComponentName(context,
