@@ -5,23 +5,28 @@
     android:layout_height="match_parent"
     android:layout_margin="8dip"
     android:background="@drawable/myshape" >
-
-    <ImageView
-      android:id="@+id/foto"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/layout"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_gravity="center"
-      android:gravity="center_horizontal|center_vertical" >
-    </ImageView>
-    <TextView
-        android:id="@+id/nombre"
-        style="@android:style/TextAppearance.Medium"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal|center_vertical"
-        android:layout_margin="4dip"
-        android:text="Static Text" >
-    </TextView>
+      android:layout_margin="8dip">
 
+      <ImageView
+        android:id="@+id/foto"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal|center_vertical" >
+      </ImageView>
+      <TextView
+          android:id="@+id/nombre"
+          style="@android:style/TextAppearance.Medium"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_gravity="center"
+          android:gravity="center_horizontal|center_vertical"
+          android:layout_margin="4dip"
+          android:text="Static Text" >
+      </TextView>
+    </LinearLayout> 
 </LinearLayout> 
