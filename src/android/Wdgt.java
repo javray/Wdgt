@@ -45,7 +45,7 @@ public class Wdgt extends AppWidgetProvider {
           R.layout.widget_layout);
 
       remoteViews.setTextViewText(R.id.nombre, nombre);
-      remoteViews.setImageResource(R.id.foto, foto);
+      remoteViews.setImageViewResource(R.id.foto, foto);
 
       /*
       // Register an onClickListener
