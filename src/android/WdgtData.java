@@ -73,4 +73,9 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   public boolean hasStableIds() {
       return true;
   }
+
+ @Override
+  public int getViewTypeCount() {
+      return 1;
+  }
 }
