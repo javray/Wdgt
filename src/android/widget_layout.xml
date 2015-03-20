@@ -15,8 +15,6 @@
           android:background="#ef473a"
           android:text=" EmergenciAA" >
     </TextView>
-    <ScrollView  android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
       android:id="@+id/layout"
       android:layout_width="match_parent"
@@ -60,5 +58,4 @@
           android:background="#fff"
           android:text="Contacto" >
     </TextView>
-  </ScrollView>
 </GridLayout>
