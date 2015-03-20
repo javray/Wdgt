@@ -53,7 +53,6 @@ public class Wdgt extends AppWidgetProvider {
       remoteViews.setTextViewText(R.id.nombre, nombre);
       //remoteViews.setImageViewUri(R.id.foto, foto);
 
-      /*
       // Register an onClickListener
       Intent intent = new Intent(context, Wdgt.class);
 
@@ -62,6 +61,7 @@ public class Wdgt extends AppWidgetProvider {
 
       PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
           0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+      /*
       remoteViews.setOnClickPendingIntent(R.id.update, pendingIntent);
       appWidgetManager.updateAppWidget(widgetId, remoteViews);
       */
