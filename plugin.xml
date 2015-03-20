@@ -24,6 +24,8 @@
               android:name="android.appwidget.provider"
               android:resource="@xml/widget_info" />
         </receiver>
+         <service android:name="WdgtService"
+             android:permission="android.permission.BIND_REMOTEVIEWS" />
       </config-file>
       <source-file src="src/android/widget_info.xml" target-dir="res/xml"/>
       <source-file src="src/android/myshape.xml" target-dir="res/drawable"/>
