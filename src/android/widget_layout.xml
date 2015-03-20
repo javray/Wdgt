@@ -7,7 +7,7 @@
     android:background="@drawable/myshape" >
 
     <TextView
-        android:id="@+id/update"
+        android:id="@+id/nombre"
         style="@android:style/TextAppearance.Medium"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,5 +16,9 @@
         android:layout_margin="4dip"
         android:text="Static Text" >
     </TextView>
+    <ImageView
+      android:id="@+id/foto"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
 
 </LinearLayout> 

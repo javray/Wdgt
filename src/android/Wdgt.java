@@ -23,10 +23,16 @@ public class Wdgt extends AppWidgetProvider {
 
     SharedPreferences SharedPref;
     String nombre = "";
+    String foto = "";
 
     SharedPref = context.getSharedPreferences("datos", 0);
+
     if (SharedPref.contains("nombre")) {
       nombre = SharedPref.getString("nombre", "");
+    }
+
+    if (SharedPref.contains("foto")) {
+      foto = SharedPref.getString("foto", "");
     }
 
     // Get all ids
@@ -34,16 +40,14 @@ public class Wdgt extends AppWidgetProvider {
         Wdgt.class);
     int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
     for (int widgetId : allWidgetIds) {
-      // create some random data
-      int number = (new Random().nextInt(100));
 
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
           R.layout.widget_layout);
-      Log.w("WidgetExample", String.valueOf(number));
-      // Set the text
-      //remoteViews.setTextViewText(R.id.update, String.valueOf(number));
-      remoteViews.setTextViewText(R.id.update, nombre);
 
+      remoteViews.setTextViewText(R.id.nombre, nombre);
+      remoteViews.setImageResource(R.id.foto, foto);
+
+      /*
       // Register an onClickListener
       Intent intent = new Intent(context, Wdgt.class);
 
@@ -54,6 +58,7 @@ public class Wdgt extends AppWidgetProvider {
           0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
       remoteViews.setOnClickPendingIntent(R.id.update, pendingIntent);
       appWidgetManager.updateAppWidget(widgetId, remoteViews);
+      */
     }
   }
 }
