@@ -12,6 +12,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 
 import android.content.SharedPreferences;
+import android.net.Uri;
 
 public class Wdgt extends AppWidgetProvider {
 
@@ -23,7 +24,7 @@ public class Wdgt extends AppWidgetProvider {
 
     SharedPreferences SharedPref;
     String nombre = "";
-    String foto = "";
+    Uri foto;
 
     SharedPref = context.getSharedPreferences("datos", 0);
 
@@ -32,7 +33,10 @@ public class Wdgt extends AppWidgetProvider {
     }
 
     if (SharedPref.contains("foto")) {
-      foto = SharedPref.getString("foto", "");
+      foto = Uri.parse(SharedPref.getString("foto", ""));
+    }
+    else {
+      foto = Uri.parse("http://lorempixel.com/80/80");
     }
 
     // Get all ids
