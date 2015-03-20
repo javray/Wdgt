@@ -59,7 +59,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
                                      R.layout.row);
     row.setTextViewText(android.R.id.text1, sData.get(position).text);
 
-    Log.v("Wdgt", sData.get(position).text);
+    Log.v("Wdgt-", sData.get(position).text);
 
     return row;
   }
