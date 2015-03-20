@@ -24,7 +24,7 @@ public class Wdgt extends AppWidgetProvider {
 
     SharedPreferences SharedPref;
     String nombre = "";
-    Uri foto;
+    //Uri foto;
 
     SharedPref = context.getSharedPreferences("datos", 0);
 
@@ -32,12 +32,14 @@ public class Wdgt extends AppWidgetProvider {
       nombre = SharedPref.getString("nombre", "");
     }
 
+    /*
     if (SharedPref.contains("foto")) {
       foto = Uri.parse(SharedPref.getString("foto", ""));
     }
     else {
       foto = Uri.parse("http://lorempixel.com/80/80");
     }
+    */
 
     // Get all ids
     ComponentName thisWidget = new ComponentName(context,
