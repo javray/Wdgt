@@ -51,7 +51,7 @@ public class Wdgt extends AppWidgetProvider {
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
           R.layout.widget_layout);
 
-      Intent svcIntent = new Intent(ctxt, WdgtService.class);
+      Intent svcIntent = new Intent(context, WdgtService.class);
       svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
       svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));
 

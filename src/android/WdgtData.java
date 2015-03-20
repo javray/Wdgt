@@ -38,7 +38,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     SharedPreferences SharedPref;
     String contacto = "";
 
-    SharedPref = context.getSharedPreferences("datos", 0);
+    SharedPref = ctxt.getSharedPreferences("datos", 0);
 
     if (SharedPref.contains("contacto")) {
       contacto = SharedPref.getString("contacto", "");
@@ -55,7 +55,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
   @Override
   public int getCount() {
-    return(items.length);
+    return(sData.length);
   }
 
   @Override
@@ -67,7 +67,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     Intent i=new Intent();
     Bundle extras=new Bundle();
 
-    extras.putString(WidgetProvider.EXTRA_DATA, sData.get(position));
+    extras.putString(Wdgt.EXTRA_DATA, sData.get(position).text);
     i.putExtras(extras);
     row.setOnClickFillInIntent(android.R.id.text1, i);
 
