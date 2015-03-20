@@ -74,5 +74,6 @@ public class Wdgt extends AppWidgetProvider {
       appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.datos);
       appWidgetManager.updateAppWidget(widgetId, remoteViews);
     }
+    super.onUpdate(context, appWidgetManager, appWidgetIds);
   }
 }
