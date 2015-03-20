@@ -41,7 +41,7 @@ public class Wdgt extends AppWidgetProvider {
     }
 
     if (SharedPref.contains("contacto")) {
-      nombre = SharedPref.getString("contacto", "");
+      contacto = SharedPref.getString("contacto", "");
     }
 
     // Get all ids
