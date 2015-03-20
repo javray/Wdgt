@@ -13,7 +13,7 @@
           android:layout_gravity="top"
           android:textColor="#fff"
           android:background="#ef473a"
-          android:text="EmergenciAA" >
+          android:text=" EmergenciAA" >
     </TextView>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
       android:id="@+id/layout"
@@ -41,4 +41,12 @@
           android:text="Nombre" >
       </TextView>
     </LinearLayout>
+    <TextView
+          style="@android:style/TextAppearance.Medium"
+          android:layout_width="match_parent"
+          android:layout_height="25dip"
+          android:textColor="#fff"
+          android:background="#ef473a"
+          android:text="Persona de contacto" >
+    </TextView>
 </FrameLayout>
