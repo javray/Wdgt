@@ -72,13 +72,13 @@ public class Wdgt extends AppWidgetProvider {
           R.layout.widget_layout);
 
       Intent intent2 = new Intent(context, Wdgt.class);
-      intent2.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
+      intent2.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
       intent2.setData(sData);
 
       remoteViews.setTextViewText(R.id.nombre, nombre);
       remoteViews.setImageViewUri(R.id.foto, foto);
 
-      remoteViews.setRemoteAdapter(appWidgetIds[i], R.id.datos, intent2);
+      remoteViews.setRemoteAdapter(widgetId, R.id.datos, intent2);
 
 
       // Register an onClickListener
