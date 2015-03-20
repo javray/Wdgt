@@ -33,10 +33,6 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       this.ctxt=ctxt;
       appWidgetId=intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                                       AppWidgetManager.INVALID_APPWIDGET_ID);
-  }
-
-  @Override
-  public void onCreate() {
     SharedPreferences SharedPref;
     String contacto = "";
 
@@ -50,6 +46,10 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     sData.add(new DataElement(contacto, 0));
 
     Log.v("Wdgt", Integer.toString(sData.size()));
+  }
+
+  @Override
+  public void onCreate() {
   }
 
   @Override
