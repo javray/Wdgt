@@ -9,8 +9,9 @@
     <TextView
           style="@android:style/TextAppearance.Medium"
           android:layout_width="match_parent"
-          android:layout_height="50dip"
+          android:layout_height="25dip"
           android:layout_gravity="top"
+          android:layout_marginLeft="15sp"
           android:textColor="#fff"
           android:background="#ef473a"
           android:text="EmergenciAA" >
@@ -19,7 +20,7 @@
       android:id="@+id/layout"
       android:layout_width="match_parent"
       android:layout_height="80dip"
-      android:layout_margin="4dip">
+      android:layout_margin="25dip">
 
       <ImageView
         android:id="@+id/foto"
