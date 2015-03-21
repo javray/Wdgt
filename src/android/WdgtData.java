@@ -93,7 +93,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
     if (el.img != null) {
       row = new RemoteViews(ctxt.getPackageName(), R.layout.foto);
-      row.setImageViewUri(R.id.foto, el.foto);
+      row.setImageViewUri(R.id.foto, el.img);
     }
     else {
       row = new RemoteViews(ctxt.getPackageName(),
