@@ -114,9 +114,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       row = new RemoteViews(ctxt.getPackageName(), R.layout.row);
       row.setTextViewText(android.R.id.text1, el.text);
 
-      if (el.header == 1) {
-        row.setInt(android.R.id.text1, "setBackgroundColor", android.graphics.Color.parseColor("#F5F5F5"));
-      }
+      row.setInt(android.R.id.text1, "setBackgroundColor", android.graphics.Color.parseColor(el.header == 1 ? "#F5F5F5" : "white"));
     }
 
     Log.v("Wdgt-", el.text);
@@ -157,5 +155,6 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   @Override
   public void onDataSetChanged() {
     Log.v("Wdgt", "onDataSetChanged");
+    sData = new ArrayList<DataElement>();
   }
 }
