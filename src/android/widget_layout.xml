@@ -23,7 +23,7 @@
         android:id="@+id/refresh"
         android:layout_width="43dp"
         android:layout_height="fill_parent"
-        android:layout_gravity="left|center"
+        android:layout_gravity="right|center"
         android:background="@drawable/ic_sync_button"
         android:padding="5dip" />
     </LinearLayout>
