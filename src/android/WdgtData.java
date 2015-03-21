@@ -47,6 +47,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     String contacto = "";
     String telefono1 = "";
     String telefono2 = "";
+    String grupoSanguineo = "";
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
 
@@ -73,12 +74,21 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       telefono1 = SharedPref.getString("telefono2", "");
     }
 
+    if (SharedPref.contains("grupoSanguineo")) {
+      grupoSanguineo = SharedPref.getString("grupoSanguineo", "");
+    }
+
     sData.add(new DataElement(nombre, 0, foto));
     sData.add(new DataElement("Persona de contacto", 1));
     sData.add(new DataElement(contacto, 0));
     sData.add(new DataElement(telefono1, 0));
-    sData.add(new DataElement(telefono2, 0));
+    if (!telefono2.equals("")) {
+      sData.add(new DataElement(telefono2, 0));
+    }
     sData.add(new DataElement("Grupo sanguineo", 1));
+    if (!grupoSanguineo.equals("")) {
+      sData.add(new DataElement(grupoSanguineo, 0));
+    }
   }
 
   @Override
