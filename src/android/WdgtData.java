@@ -34,16 +34,29 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       appWidgetId=intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                                       AppWidgetManager.INVALID_APPWIDGET_ID);
     SharedPreferences SharedPref;
+    String nombre = "";
     String contacto = "";
+    String telefono1 = "";
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
+
+    if (SharedPref.contains("nombre")) {
+      nombre = SharedPref.getString("nombre", "");
+    }
 
     if (SharedPref.contains("contacto")) {
       contacto = SharedPref.getString("contacto", "");
     }
 
+    if (SharedPref.contains("telefono1")) {
+      telefono1 = SharedPref.getString("telefono1", "");
+    }
+
+    sData.add(new DataElement("EmergenciAA", 1));
+    sData.add(new DataElement(nombre, 0));
     sData.add(new DataElement("Persona de contacto", 1));
     sData.add(new DataElement(contacto, 0));
+    sData.add(new DataElement(telefono1, 0));
 
     Log.v("Wdgt", Integer.toString(sData.size()));
   }
