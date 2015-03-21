@@ -13,6 +13,8 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 class DataElement {
   String text;
@@ -48,6 +50,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     String telefono1 = "";
     String telefono2 = "";
     String grupoSanguineo = "";
+    JSONArray enfermedades = new JSONArray("[]");
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
 
@@ -78,20 +81,32 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       grupoSanguineo = SharedPref.getString("grupoSanguineo", "");
     }
 
+    if (SharedPref.contains("enfermedades")) {
+      enfermedades = new JSONArray(SharedPref.getString("enfermedades", ""));
+    }
+
     sData.clear();
 
     sData.add(new DataElement(nombre, 0, foto));
     sData.add(new DataElement("Persona de contacto", 1));
     sData.add(new DataElement(contacto, 0));
     sData.add(new DataElement(telefono1, 0));
+
     if (!telefono2.equals("")) {
       sData.add(new DataElement(telefono2, 0));
     }
+
     sData.add(new DataElement("Grupo sanguineo", 1));
+
     if (!grupoSanguineo.equals("")) {
       sData.add(new DataElement(grupoSanguineo, 0));
     }
+
     sData.add(new DataElement("Enfermedades", 1));
+
+    for (JSONObject enfermedad : enfermedades) {
+      Log.v("WdgtData", enfermedad.toString());
+    }
 
     Log.v("WdgtData", Integer.toString(sData.size()));
   }
