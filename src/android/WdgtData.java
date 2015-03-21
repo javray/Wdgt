@@ -85,14 +85,14 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       try {
         enfermedades = new JSONArray(SharedPref.getString("enfermedades", ""));
       }
-      catch(JSONException e) {
+      catch(Exception e) {
       }
     }
     else {
       try {
         enfermedades = new JSONArray("[]");
       }
-      catch(JSONException e) {
+      catch(Exception e) {
       }
     }
 
