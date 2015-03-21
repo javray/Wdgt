@@ -123,7 +123,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   }
  @Override
 public int getItemViewType(int position) {
-    return (sData.get(position).img == null ? 0 : 1;
+    return sData.get(position).img == null ? 0 : 1;
 }
 
  @Override
