@@ -143,6 +143,8 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     catch(Exception e) {
     }
 
+    sData.add(new DataElement("Discapacidad", 1));
+
     Log.v("WdgtData", Integer.toString(sData.size()));
   }
 
