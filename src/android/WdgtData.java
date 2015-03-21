@@ -92,6 +92,8 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     sData.add(new DataElement("Enfermedades", 1));
   }
 
+  Log.v("WdgtData", Integer.toString(sData.size()));
+
   @Override
   public int getCount() {
     return sData.size();
