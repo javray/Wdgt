@@ -16,10 +16,17 @@ import java.util.ArrayList;
 class DataElement {
   String text;
   int header;
+  String img = null;
 
   DataElement(String t, int h) {
     text = t;
     header = h;
+  }
+
+  DataElement(String t, int h, String i) {
+    text = t;
+    header = h;
+    img = i;
   }
 }
 
@@ -57,7 +64,6 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       telefono1 = SharedPref.getString("telefono2", "");
     }
 
-    sData.add(new DataElement("EmergenciAA", 1));
     sData.add(new DataElement(nombre, 0));
     sData.add(new DataElement("Persona de contacto", 1));
     sData.add(new DataElement(contacto, 0));
