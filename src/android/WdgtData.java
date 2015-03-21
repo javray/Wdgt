@@ -104,8 +104,8 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
     sData.add(new DataElement("Enfermedades", 1));
 
-    for (JSONObject enfermedad : enfermedades) {
-      Log.v("WdgtData", enfermedad.toString());
+    for (int i = 0, l = enfermedades.length(); i < l; i += 1) {
+      Log.v("WdgtData", enfermedades.getJSONObject(i).toString());
     }
 
     Log.v("WdgtData", Integer.toString(sData.size()));
