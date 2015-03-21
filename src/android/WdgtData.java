@@ -10,20 +10,21 @@ import android.widget.RemoteViewsService;
 import android.util.Log;
 
 import android.content.SharedPreferences;
+import android.net.Uri;
 
 import java.util.ArrayList;
 
 class DataElement {
   String text;
   int header;
-  String img = null;
+  Uri img = null;
 
   DataElement(String t, int h) {
     text = t;
     header = h;
   }
 
-  DataElement(String t, int h, String i) {
+  DataElement(String t, int h, Uri i) {
     text = t;
     header = h;
     img = i;
@@ -52,6 +53,13 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       nombre = SharedPref.getString("nombre", "");
     }
 
+    if (SharedPref.contains("foto")) {
+      foto = Uri.parse(SharedPref.getString("foto", ""));
+    }
+    else {
+      foto = Uri.parse("http://lorempixel.com/80/80");
+    }
+
     if (SharedPref.contains("contacto")) {
       contacto = SharedPref.getString("contacto", "");
     }
@@ -64,14 +72,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       telefono1 = SharedPref.getString("telefono2", "");
     }
 
-    sData.add(new DataElement(nombre, 0));
+    sData.add(new DataElement(nombre, 0, foto));
     sData.add(new DataElement("Persona de contacto", 1));
     sData.add(new DataElement(contacto, 0));
     sData.add(new DataElement(telefono1, 0));
     sData.add(new DataElement(telefono2, 0));
     sData.add(new DataElement("Grupo sanguineo", 1));
-
-    Log.v("Wdgt", Integer.toString(sData.size()));
   }
 
   @Override
@@ -81,9 +87,18 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
   @Override
   public RemoteViews getViewAt(int position) {
-    RemoteViews row=new RemoteViews(ctxt.getPackageName(),
+    DataElement el = sData.get(position);
+    RemoteViews row;
+
+    if (el.img != null) {
+      row = new RemoteViews(ctxt.getPackageName(), R.layout.foto);
+      row.setImageViewUri(R.id.foto, el.foto);
+    }
+    else {
+      row = new RemoteViews(ctxt.getPackageName(),
                                      R.layout.row);
-    row.setTextViewText(android.R.id.text1, sData.get(position).text);
+      row.setTextViewText(android.R.id.text1, sData.get(position).text);
+    }
 
     Log.v("Wdgt-", sData.get(position).text);
 
