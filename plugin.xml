@@ -27,12 +27,10 @@
          <service android:name="WdgtService"
              android:permission="android.permission.BIND_REMOTEVIEWS" />
       </config-file>
-      <source-file src="src/android/attrs.xml" target-dir="res/values"/>
       <source-file src="src/android/widget_info.xml" target-dir="res/xml"/>
       <source-file src="src/android/myshape.xml" target-dir="res/drawable"/>
       <source-file src="src/android/widget_layout.xml" target-dir="res/layout"/>
       <source-file src="src/android/row.xml" target-dir="res/layout"/>
-      <source-file src="src/android/HeaderListViewFromXML.java" target-dir="src/com/ionicframework/emergenciaa941042" />
       <source-file src="src/android/Wdgt.java" target-dir="src/com/javray/cordova/plugin/Wdgt" />
       <source-file src="src/android/WdgtData.java" target-dir="src/com/javray/cordova/plugin/Wdgt" />
       <source-file src="src/android/WdgtService.java" target-dir="src/com/javray/cordova/plugin/Wdgt" />
