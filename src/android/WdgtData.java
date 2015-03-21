@@ -50,7 +50,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     String telefono1 = "";
     String telefono2 = "";
     String grupoSanguineo = "";
-    JSONArray enfermedades;
+    JSONArray enfermedades = null;
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
 
@@ -115,8 +115,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
     sData.add(new DataElement("Enfermedades", 1));
 
-    for (int i = 0, l = enfermedades.length(); i < l; i += 1) {
-      Log.v("WdgtData", enfermedades.getJSONObject(i).toString());
+    try {
+      for (int i = 0, l = enfermedades.length(); i < l; i += 1) {
+        Log.v("WdgtData", enfermedades.getJSONObject(i).toString());
+      }
+    }
+    catch(Exception e) {
     }
 
     Log.v("WdgtData", Integer.toString(sData.size()));
