@@ -98,10 +98,10 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     }
     else {
       row = new RemoteViews(ctxt.getPackageName(), R.layout.row);
-      row.setTextViewText(R.id.text1, el.text);
+      row.setTextViewText(android.R.id.text1, el.text);
 
       if (el.header == 1) {
-        row.setInt(R.id.text1, "setBackgroundColor", android.graphics.Color.GREY);
+        row.setInt(android.R.id.text1, "setBackgroundColor", android.graphics.Color.GREY);
       }
     }
 
