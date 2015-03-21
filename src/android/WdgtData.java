@@ -118,12 +118,13 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     try {
 
       JSONObject enfermedad;
+      int l = enfermedad.length();
 
-      for (int i = 0, l = enfermedades.length(); i < l; i += 1) {
+      for (int i = 0; i < l; i += 1) {
 
         enfermedad = enfermedades.getJSONObject(i);
 
-        if (enfermedad.getBoolean("checked")) {
+        if (enfermedad.getBoolean("checked") && i != (l -1)) {
           sData.add(new DataElement(enfermedad.getString("text"), 0));
         }
 
