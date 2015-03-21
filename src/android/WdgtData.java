@@ -51,6 +51,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     String telefono2 = "";
     String grupoSanguineo = "";
     JSONArray enfermedades = null;
+    String enfermedadesOtros = "";
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
 
@@ -96,6 +97,10 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       }
     }
 
+    if (SharedPref.contains("enfermedadesOtros")) {
+      enfermedadesOtros = SharedPref.getString("enfermedadesOtros", "");
+    }
+
     sData.clear();
 
     sData.add(new DataElement(nombre, 0, foto));
@@ -129,6 +134,10 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
         }
 
         Log.v("WdgtData", enfermedades.getJSONObject(i).toString());
+      }
+
+      if (enfermedades.getJSONObject(l -1).getBoolean("checked")) {
+        sData.add(new DataElement(enfermedadesOtros, 0));
       }
     }
     catch(Exception e) {
