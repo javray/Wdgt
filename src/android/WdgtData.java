@@ -101,7 +101,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       row.setTextViewText(android.R.id.text1, el.text);
 
       if (el.header == 1) {
-        row.setInt(android.R.id.text1, "setBackgroundColor", android.graphics.Color.parseColor("#ccc"));
+        row.setInt(android.R.id.text1, "setBackgroundColor", android.graphics.Color.parseColor("lightgray"));
       }
     }
 
