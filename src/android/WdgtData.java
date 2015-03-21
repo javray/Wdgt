@@ -37,6 +37,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     String nombre = "";
     String contacto = "";
     String telefono1 = "";
+    String telefono2 = "";
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
 
@@ -52,11 +53,17 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       telefono1 = SharedPref.getString("telefono1", "");
     }
 
+    if (SharedPref.contains("telefono2")) {
+      telefono1 = SharedPref.getString("telefono2", "");
+    }
+
     sData.add(new DataElement("EmergenciAA", 1));
     sData.add(new DataElement(nombre, 0));
     sData.add(new DataElement("Persona de contacto", 1));
     sData.add(new DataElement(contacto, 0));
     sData.add(new DataElement(telefono1, 0));
+    sData.add(new DataElement(telefono2, 0));
+    sData.add(new DataElement("Grupo sanguineo", 1));
 
     Log.v("Wdgt", Integer.toString(sData.size()));
   }
