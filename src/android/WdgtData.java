@@ -90,9 +90,10 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       sData.add(new DataElement(grupoSanguineo, 0));
     }
     sData.add(new DataElement("Enfermedades", 1));
+
+    Log.v("WdgtData", Integer.toString(sData.size()));
   }
 
-  Log.v("WdgtData", Integer.toString(sData.size()));
 
   @Override
   public int getCount() {
