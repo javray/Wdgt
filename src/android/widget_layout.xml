@@ -51,8 +51,8 @@
           style="@android:style/TextAppearance.Medium"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:layout_margin="4dip"
           android:textColor="#fff"
+          android:paddingLeft="10dp"
           android:background="#ef473a"
           android:text="EmergenciAA" >
       </TextView>
