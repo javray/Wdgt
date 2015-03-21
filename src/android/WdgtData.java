@@ -57,6 +57,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     String medicamentosOtros = "";
     JSONArray alergias = null;
     String alergiasOtros = "";
+    String otrosDatos = "";
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
 
@@ -146,6 +147,10 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
     if (SharedPref.contains("alergiasOtros")) {
       alergiasOtros = SharedPref.getString("alergiasOtros", "");
+    }
+
+    if (SharedPref.contains("otrosDatos")) {
+      otrosDatos = SharedPref.getString("otrosDatos", "");
     }
 
     sData.clear();
@@ -244,6 +249,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       }
     }
     catch(Exception e) {
+    }
+
+    sData.add(new DataElement("Otros datos de interés", 1));
+
+    if (!otrosDatos.equals("")) {
+      sData.add(new DataElement(otrosDatos, 0));
     }
 
     Log.v("WdgtData", Integer.toString(sData.size()));
