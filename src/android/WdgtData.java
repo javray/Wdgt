@@ -52,6 +52,11 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     String grupoSanguineo = "";
     JSONArray enfermedades = null;
     String enfermedadesOtros = "";
+    String discapacidad = "";
+    JSONArray medicamentos = null;
+    String medicamentosOtros = "";
+    JSONArray alergias = null;
+    String alergiasOtros = "";
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
 
@@ -101,6 +106,48 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       enfermedadesOtros = SharedPref.getString("enfermedadesOtros", "");
     }
 
+    if (SharedPref.contains("discapacidad")) {
+      discapacidad = SharedPref.getString("discapacidad", "");
+    }
+
+    if (SharedPref.contains("medicamentos")) {
+      try {
+        medicamentos = new JSONArray(SharedPref.getString("medicamentos", ""));
+      }
+      catch(Exception e) {
+      }
+    }
+    else {
+      try {
+        medicamentos = new JSONArray("[]");
+      }
+      catch(Exception e) {
+      }
+    }
+
+    if (SharedPref.contains("medicamentosOtros")) {
+      medicamentosOtros = SharedPref.getString("medicamentosOtros", "");
+    }
+
+    if (SharedPref.contains("alergias")) {
+      try {
+        alergias = new JSONArray(SharedPref.getString("alergias", ""));
+      }
+      catch(Exception e) {
+      }
+    }
+    else {
+      try {
+        alergias = new JSONArray("[]");
+      }
+      catch(Exception e) {
+      }
+    }
+
+    if (SharedPref.contains("alergiasOtros")) {
+      alergiasOtros = SharedPref.getString("alergiasOtros", "");
+    }
+
     sData.clear();
 
     sData.add(new DataElement(nombre, 0, foto));
@@ -144,6 +191,60 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     }
 
     sData.add(new DataElement("Discapacidad", 1));
+
+    if (!discapacidad.equals("")) {
+      sData.add(new DataElement(discapacidad, 0));
+    }
+
+    sData.add(new DataElement("Medicamentos actuales", 1));
+
+    try {
+
+      JSONObject medicamento;
+      int l = medicamentos.length();
+
+      for (int i = 0; i < l; i += 1) {
+
+        medicamento = medicamentos.getJSONObject(i);
+
+        if (medicamento.getBoolean("checked") && i != (l -1)) {
+          sData.add(new DataElement(medicamento.getString("text"), 0));
+        }
+
+        Log.v("WdgtData", medicamentos.getJSONObject(i).toString());
+      }
+
+      if (medicamentos.getJSONObject(l -1).getBoolean("checked")) {
+        sData.add(new DataElement(medicamentosOtros, 0));
+      }
+    }
+    catch(Exception e) {
+    }
+
+    sData.add(new DataElement("Alergias medicamentos", 1));
+
+    try {
+
+      JSONObject alergia;
+      int l = alergias.length();
+
+      for (int i = 0; i < l; i += 1) {
+
+        alergia = alergias.getJSONObject(i);
+
+        if (alergia.getBoolean("checked") && i != (l -1)) {
+          sData.add(new DataElement(alergia.getString("text"), 0));
+        }
+
+        Log.v("WdgtData", alergias.getJSONObject(i).toString());
+      }
+
+      if (alergias.getJSONObject(l -1).getBoolean("checked")) {
+        sData.add(new DataElement(alergiasOtros, 0));
+      }
+    }
+    catch(Exception e) {
+    }
 
     Log.v("WdgtData", Integer.toString(sData.size()));
   }
