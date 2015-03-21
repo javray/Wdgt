@@ -89,6 +89,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     if (!grupoSanguineo.equals("")) {
       sData.add(new DataElement(grupoSanguineo, 0));
     }
+    sData.add(new DataElement("Enfermedades", 1));
   }
 
   @Override
@@ -111,7 +112,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       row.setTextViewText(android.R.id.text1, el.text);
 
       if (el.header == 1) {
-        row.setInt(android.R.id.text1, "setBackgroundColor", android.graphics.Color.parseColor("lightgray"));
+        row.setInt(android.R.id.text1, "setBackgroundColor", android.graphics.Color.parseColor("#F5F5F5"));
       }
     }
 
