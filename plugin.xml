@@ -29,7 +29,6 @@
       </config-file>
       <source-file src="src/android/widget_info.xml" target-dir="res/xml"/>
       <source-file src="src/android/myshape.xml" target-dir="res/drawable"/>
-      <source-file src="src/android/mask.xml" target-dir="res/drawable"/>
       <source-file src="src/android/widget_layout.xml" target-dir="res/layout"/>
       <source-file src="src/android/row.xml" target-dir="res/layout"/>
       <source-file src="src/android/foto.xml" target-dir="res/layout"/>
