@@ -78,6 +78,8 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       grupoSanguineo = SharedPref.getString("grupoSanguineo", "");
     }
 
+    sData.clear();
+
     sData.add(new DataElement(nombre, 0, foto));
     sData.add(new DataElement("Persona de contacto", 1));
     sData.add(new DataElement(contacto, 0));
@@ -155,6 +157,5 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   @Override
   public void onDataSetChanged() {
     Log.v("Wdgt", "onDataSetChanged");
-    sData.clear();
   }
 }
