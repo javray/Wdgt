@@ -121,10 +121,6 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   public int getViewTypeCount() {
       return 2;
   }
- @Override
-public int getItemViewType(int position) {
-    return sData.get(position).img == null ? 0 : 1;
-}
 
  @Override
   public RemoteViews getLoadingView() {
