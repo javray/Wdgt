@@ -118,7 +118,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     try {
 
       JSONObject enfermedad;
-      int l = enfermedad.length();
+      int l = enfermedades.length();
 
       for (int i = 0; i < l; i += 1) {
 
