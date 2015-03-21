@@ -43,6 +43,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
                                       AppWidgetManager.INVALID_APPWIDGET_ID);
     SharedPreferences SharedPref;
     String nombre = "";
+    Uri foto;
     String contacto = "";
     String telefono1 = "";
     String telefono2 = "";
@@ -97,10 +98,10 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     else {
       row = new RemoteViews(ctxt.getPackageName(),
                                      R.layout.row);
-      row.setTextViewText(android.R.id.text1, sData.get(position).text);
+      row.setTextViewText(android.R.id.text1, el.text);
     }
 
-    Log.v("Wdgt-", sData.get(position).text);
+    Log.v("Wdgt-", el.text);
 
     return row;
   }
