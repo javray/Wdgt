@@ -5,5 +5,4 @@
     android:minHeight="294dp"
     android:minWidth="294dp"
     android:updatePeriodMillis="1800000" >
-
 </appwidget-provider>
