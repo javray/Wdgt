@@ -155,6 +155,6 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   @Override
   public void onDataSetChanged() {
     Log.v("Wdgt", "onDataSetChanged");
-    sData = new ArrayList<DataElement>();
+    sData.clear();
   }
 }
