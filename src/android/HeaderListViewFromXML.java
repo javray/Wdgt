@@ -3,7 +3,7 @@ package com.ionicframework.emergenciaa941042;
 import android.widget.ListView;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.content.res.TypedArray
+import android.content.res.TypedArray;
 import android.view.View;
 import android.view.LayoutInflater;
 
