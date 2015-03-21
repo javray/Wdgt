@@ -50,7 +50,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     String telefono1 = "";
     String telefono2 = "";
     String grupoSanguineo = "";
-    JSONArray enfermedades = new JSONArray("[]");
+    JSONArray enfermedades;
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
 
@@ -82,7 +82,18 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     }
 
     if (SharedPref.contains("enfermedades")) {
-      enfermedades = new JSONArray(SharedPref.getString("enfermedades", ""));
+      try {
+        enfermedades = new JSONArray(SharedPref.getString("enfermedades", ""));
+      }
+      catch(JSONException e) {
+      }
+    }
+    else {
+      try {
+        enfermedades = new JSONArray("[]");
+      }
+      catch(JSONException e) {
+      }
     }
 
     sData.clear();
