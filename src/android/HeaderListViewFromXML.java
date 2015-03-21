@@ -1,4 +1,4 @@
-package com.ionicframework.emergenciaa941042;y
+package com.ionicframework.emergenciaa941042;
 
 import android.widget.ListView;
 import android.content.Context;
