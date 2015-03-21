@@ -81,7 +81,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     }
 
     if (SharedPref.contains("telefono2")) {
-      telefono1 = SharedPref.getString("telefono2", "");
+      telefono2 = SharedPref.getString("telefono2", "");
     }
 
     if (SharedPref.contains("grupoSanguineo")) {
