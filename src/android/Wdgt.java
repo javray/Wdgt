@@ -47,11 +47,9 @@ public class Wdgt extends AppWidgetProvider {
       intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
       intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
 
-      /*
       PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
           0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-      remoteViews.setOnClickPendingIntent(R.id.layout, pendingIntent);
-      */
+      remoteViews.setOnClickPendingIntent(R.id.refrescar, pendingIntent);
 
       appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.datos);
       appWidgetManager.updateAppWidget(widgetId, remoteViews);
