@@ -27,7 +27,7 @@
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:drawableLeft="@drawable/progress"
+            android:background="@drawable/ic_sync_button"
             android:text="" />
     </RelativeLayout>
     <ListView
