@@ -13,6 +13,8 @@ import android.widget.RemoteViews;
 
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.widget.Button;
+import android.graphics.drawable.AnimationDrawable;
 
 public class Wdgt extends AppWidgetProvider {
 
@@ -28,6 +30,12 @@ public class Wdgt extends AppWidgetProvider {
     ComponentName thisWidget = new ComponentName(context,
         Wdgt.class);
     int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
+
+    Button btn = (Button)findViewById(R.id.refrescar);
+    AnimationDrawable d=(AnimationDrawable)btn.getCompoundDrawables()[0];
+
+    d.start();
+
     for (int widgetId : allWidgetIds) {
 
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
@@ -55,5 +63,6 @@ public class Wdgt extends AppWidgetProvider {
       appWidgetManager.updateAppWidget(widgetId, remoteViews);
     }
     super.onUpdate(context, appWidgetManager, appWidgetIds);
+    d.stop();
   }
 }

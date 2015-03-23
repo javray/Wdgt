@@ -260,6 +260,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
     Log.v("WdgtData", Integer.toString(sData.size()));
     */
+
   }
 
 
