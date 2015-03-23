@@ -24,24 +24,6 @@ public class Wdgt extends AppWidgetProvider {
   public void onUpdate(Context context, AppWidgetManager appWidgetManager,
       int[] appWidgetIds) {
 
-    SharedPreferences SharedPref;
-    String nombre = "";
-    Uri foto;
-    String contacto = "";
-
-    SharedPref = context.getSharedPreferences("datos", 0);
-
-    if (SharedPref.contains("nombre")) {
-      nombre = SharedPref.getString("nombre", "");
-    }
-
-    if (SharedPref.contains("foto")) {
-      foto = Uri.parse(SharedPref.getString("foto", ""));
-    }
-    else {
-      foto = Uri.parse("http://lorempixel.com/80/80");
-    }
-
     // Get all ids
     ComponentName thisWidget = new ComponentName(context,
         Wdgt.class);
@@ -57,8 +39,6 @@ public class Wdgt extends AppWidgetProvider {
 
       Log.v("Wdgt", Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)).toString());
 
-      //remoteViews.setTextViewText(R.id.nombre, nombre);
-      //remoteViews.setImageViewUri(R.id.foto, foto);
       remoteViews.setRemoteAdapter(widgetId, R.id.datos, svcIntent);
 
       // Register an onClickListener
