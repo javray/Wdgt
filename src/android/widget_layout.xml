@@ -7,6 +7,7 @@
     android:background="@drawable/myshape" >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:orientation="horizontal"
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
 
@@ -19,6 +20,12 @@
           android:background="#ef473a"
           android:text="EmergenciAA" >
       </TextView>
+      <Button
+            android:id="@+id/refrescar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:text="Refrescar" />
     </LinearLayout>
     <ListView
       android:id="@+id/datos"
