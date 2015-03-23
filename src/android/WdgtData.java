@@ -43,6 +43,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       this.ctxt=ctxt;
       appWidgetId=intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                                       AppWidgetManager.INVALID_APPWIDGET_ID);
+      /*
     SharedPreferences SharedPref;
     String nombre = "";
     Uri foto;
@@ -258,6 +259,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     }
 
     Log.v("WdgtData", Integer.toString(sData.size()));
+    */
   }
 
 
@@ -321,5 +323,220 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   @Override
   public void onDataSetChanged() {
     Log.v("Wdgt", "onDataSetChanged");
+    SharedPreferences SharedPref;
+    String nombre = "";
+    Uri foto;
+    String contacto = "";
+    String telefono1 = "";
+    String telefono2 = "";
+    String grupoSanguineo = "";
+    JSONArray enfermedades = null;
+    String enfermedadesOtros = "";
+    String discapacidad = "";
+    JSONArray medicamentos = null;
+    String medicamentosOtros = "";
+    JSONArray alergias = null;
+    String alergiasOtros = "";
+    String otrosDatos = "";
+
+    SharedPref = ctxt.getSharedPreferences("datos", 0);
+
+    if (SharedPref.contains("nombre")) {
+      nombre = SharedPref.getString("nombre", "");
+    }
+
+    if (SharedPref.contains("foto")) {
+      foto = Uri.parse(SharedPref.getString("foto", ""));
+    }
+    else {
+      foto = Uri.parse("http://lorempixel.com/80/80");
+    }
+
+    if (SharedPref.contains("contacto")) {
+      contacto = SharedPref.getString("contacto", "");
+    }
+
+    if (SharedPref.contains("telefono1")) {
+      telefono1 = SharedPref.getString("telefono1", "");
+    }
+
+    if (SharedPref.contains("telefono2")) {
+      telefono2 = SharedPref.getString("telefono2", "");
+    }
+
+    if (SharedPref.contains("grupoSanguineo")) {
+      grupoSanguineo = SharedPref.getString("grupoSanguineo", "");
+    }
+
+    if (SharedPref.contains("enfermedades")) {
+      try {
+        enfermedades = new JSONArray(SharedPref.getString("enfermedades", ""));
+      }
+      catch(Exception e) {
+      }
+    }
+    else {
+      try {
+        enfermedades = new JSONArray("[]");
+      }
+      catch(Exception e) {
+      }
+    }
+
+    if (SharedPref.contains("enfermedadesOtros")) {
+      enfermedadesOtros = SharedPref.getString("enfermedadesOtros", "");
+    }
+
+    if (SharedPref.contains("discapacidad")) {
+      discapacidad = SharedPref.getString("discapacidad", "");
+    }
+
+    if (SharedPref.contains("medicamentos")) {
+      try {
+        medicamentos = new JSONArray(SharedPref.getString("medicamentos", ""));
+      }
+      catch(Exception e) {
+      }
+    }
+    else {
+      try {
+        medicamentos = new JSONArray("[]");
+      }
+      catch(Exception e) {
+      }
+    }
+
+    if (SharedPref.contains("medicamentosOtros")) {
+      medicamentosOtros = SharedPref.getString("medicamentosOtros", "");
+    }
+
+    if (SharedPref.contains("alergias")) {
+      try {
+        alergias = new JSONArray(SharedPref.getString("alergias", ""));
+      }
+      catch(Exception e) {
+      }
+    }
+    else {
+      try {
+        alergias = new JSONArray("[]");
+      }
+      catch(Exception e) {
+      }
+    }
+
+    if (SharedPref.contains("alergiasOtros")) {
+      alergiasOtros = SharedPref.getString("alergiasOtros", "");
+    }
+
+    if (SharedPref.contains("otrosDatos")) {
+      otrosDatos = SharedPref.getString("otrosDatos", "");
+    }
+
+    sData.clear();
+
+    sData.add(new DataElement(nombre, 0, foto));
+    sData.add(new DataElement("Persona de contacto", 1));
+    sData.add(new DataElement(contacto, 0));
+    sData.add(new DataElement(telefono1, 0));
+
+    if (!telefono2.equals("")) {
+      sData.add(new DataElement(telefono2, 0));
+    }
+
+    sData.add(new DataElement("Grupo sanguineo", 1));
+
+    if (!grupoSanguineo.equals("")) {
+      sData.add(new DataElement(grupoSanguineo, 0));
+    }
+
+    sData.add(new DataElement("Enfermedades", 1));
+
+    try {
+
+      JSONObject enfermedad;
+      int l = enfermedades.length();
+
+      for (int i = 0; i < l; i += 1) {
+
+        enfermedad = enfermedades.getJSONObject(i);
+
+        if (enfermedad.getBoolean("checked") && i != (l -1)) {
+          sData.add(new DataElement(enfermedad.getString("text"), 0));
+        }
+
+        Log.v("WdgtData", enfermedades.getJSONObject(i).toString());
+      }
+
+      if (enfermedades.getJSONObject(l -1).getBoolean("checked")) {
+        sData.add(new DataElement(enfermedadesOtros, 0));
+      }
+    }
+    catch(Exception e) {
+    }
+
+    sData.add(new DataElement("Discapacidad", 1));
+
+    if (!discapacidad.equals("")) {
+      sData.add(new DataElement(discapacidad, 0));
+    }
+
+    sData.add(new DataElement("Medicamentos actuales", 1));
+
+    try {
+
+      JSONObject medicamento;
+      int l = medicamentos.length();
+
+      for (int i = 0; i < l; i += 1) {
+
+        medicamento = medicamentos.getJSONObject(i);
+
+        if (medicamento.getBoolean("checked") && i != (l -1)) {
+          sData.add(new DataElement(medicamento.getString("text"), 0));
+        }
+
+        Log.v("WdgtData", medicamentos.getJSONObject(i).toString());
+      }
+
+      if (medicamentos.getJSONObject(l -1).getBoolean("checked")) {
+        sData.add(new DataElement(medicamentosOtros, 0));
+      }
+    }
+    catch(Exception e) {
+    }
+
+    sData.add(new DataElement("Alergias medicamentos", 1));
+
+    try {
+
+      JSONObject alergia;
+      int l = alergias.length();
+
+      for (int i = 0; i < l; i += 1) {
+
+        alergia = alergias.getJSONObject(i);
+
+        if (alergia.getBoolean("checked") && i != (l -1)) {
+          sData.add(new DataElement(alergia.getString("text"), 0));
+        }
+
+        Log.v("WdgtData", alergias.getJSONObject(i).toString());
+      }
+
+      if (alergias.getJSONObject(l -1).getBoolean("checked")) {
+        sData.add(new DataElement(alergiasOtros, 0));
+      }
+    }
+    catch(Exception e) {
+    }
+
+    sData.add(new DataElement("Otros datos de interés", 1));
+
+    if (!otrosDatos.equals("")) {
+      sData.add(new DataElement(otrosDatos, 0));
+    }
+
+    Log.v("WdgtData", Integer.toString(sData.size()));
   }
 }
