@@ -107,6 +107,8 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   public void onDataSetChanged() {
     Log.v("Wdgt", "onDataSetChanged");
     SharedPreferences SharedPref;
+    JSONObject = textos = null;
+    String idioma = "es";
     String nombre = "";
     Uri foto;
     String contacto = "";
@@ -123,6 +125,18 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     String otrosDatos = "";
 
     SharedPref = ctxt.getSharedPreferences("datos", 0);
+
+    if (SharedPref.contains("textos")) {
+      try {
+        textos = new JSONObject(SharedPref.getString("textos", ""));
+      }
+      catch(Exception e) {
+      }
+    }
+
+    if (SharedPref.contains("idioma")) {
+      nombre = SharedPref.getString("idioma", "");
+    }
 
     if (SharedPref.contains("nombre")) {
       nombre = SharedPref.getString("nombre", "");
@@ -219,7 +233,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     sData.clear();
 
     sData.add(new DataElement(nombre, 0, foto));
-    sData.add(new DataElement("Persona de contacto", 1));
+    sData.add(new DataElement(textos.getJSONObject("Persona de contacto").getString(idioma), 1));
     sData.add(new DataElement(contacto, 0));
     sData.add(new DataElement(telefono1, 0));
 
