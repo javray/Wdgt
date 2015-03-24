@@ -246,13 +246,23 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       sData.add(new DataElement(telefono2, 0));
     }
 
-    sData.add(new DataElement("Grupo sanguineo", 1));
+    try {
+      sData.add(new DataElement(textos.getJSONObject("Grupo Sanguineo").getString(idioma), 1));
+    }
+    catch (Exception e) {
+      sData.add(new DataElement("Grupo Sanguineo", 1));
+    }
 
     if (!grupoSanguineo.equals("")) {
       sData.add(new DataElement(grupoSanguineo, 0));
     }
 
-    sData.add(new DataElement("Enfermedades", 1));
+    try {
+      sData.add(new DataElement(textos.getJSONObject("Enfermedades").getString(idioma), 1));
+    }
+    catch (Exception e) {
+      sData.add(new DataElement("Enfermedades", 1));
+    }
 
     try {
 
@@ -264,7 +274,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
         enfermedad = enfermedades.getJSONObject(i);
 
         if (enfermedad.getBoolean("checked") && i != (l -1)) {
-          sData.add(new DataElement(enfermedad.getString("text"), 0));
+          try {
+            sData.add(new DataElement(textos.getJSONObject(enfermedad.getString("text")).getString(idioma), 0));
+          }
+          catch (Exception e) {
+            sData.add(new DataElement(enfermedad.getString("text"), 0));
+          }
         }
 
         Log.v("WdgtData", enfermedades.getJSONObject(i).toString());
@@ -277,13 +292,23 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     catch(Exception e) {
     }
 
-    sData.add(new DataElement("Discapacidad", 1));
+    try {
+      sData.add(new DataElement(textos.getJSONObject("Discapacidad").getString(idioma), 1));
+    }
+    catch (Exception e) {
+      sData.add(new DataElement("Discapacidad", 1));
+    }
 
     if (!discapacidad.equals("")) {
       sData.add(new DataElement(discapacidad, 0));
     }
 
-    sData.add(new DataElement("Medicamentos actuales", 1));
+    try {
+      sData.add(new DataElement(textos.getJSONObject("Medicamentos actuales").getString(idioma), 1));
+    }
+    catch (Exception e) {
+      sData.add(new DataElement("Medicamentos actuales", 1));
+    }
 
     try {
 
@@ -295,7 +320,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
         medicamento = medicamentos.getJSONObject(i);
 
         if (medicamento.getBoolean("checked") && i != (l -1)) {
-          sData.add(new DataElement(medicamento.getString("text"), 0));
+          try {
+            sData.add(new DataElement(textos.getJSONObject(medicamento.getString("text")).getString(idioma), 0));
+          }
+          catch (Exception e) {
+            sData.add(new DataElement(medicamento.getString("text"), 0));
+          }
         }
 
         Log.v("WdgtData", medicamentos.getJSONObject(i).toString());
@@ -308,7 +338,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     catch(Exception e) {
     }
 
-    sData.add(new DataElement("Alergias medicamentos", 1));
+    try {
+      sData.add(new DataElement(textos.getJSONObject("Alergias").getString(idioma), 1));
+    }
+    catch (Exception e) {
+      sData.add(new DataElement("Alergias", 1));
+    }
 
     try {
 
@@ -320,7 +355,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
         alergia = alergias.getJSONObject(i);
 
         if (alergia.getBoolean("checked") && i != (l -1)) {
-          sData.add(new DataElement(alergia.getString("text"), 0));
+          try {
+            sData.add(new DataElement(textos.getJSONObject(alergia.getString("text")).getString(idioma), 0));
+          }
+          catch (Exception e) {
+            sData.add(new DataElement(alergia.getString("text"), 0));
+          }
         }
 
         Log.v("WdgtData", alergias.getJSONObject(i).toString());
@@ -333,7 +373,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     catch(Exception e) {
     }
 
-    sData.add(new DataElement("Otros datos de interés", 1));
+    try {
+      sData.add(new DataElement(textos.getJSONObject("Otros datos de interes").getString(idioma), 1));
+    }
+    catch (Exception e) {
+      sData.add(new DataElement("Otros datos de interés", 1));
+    }
 
     if (!otrosDatos.equals("")) {
       sData.add(new DataElement(otrosDatos, 0));
