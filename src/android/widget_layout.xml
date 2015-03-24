@@ -14,9 +14,12 @@
 
       <ImageView
         android:id="@+id/icono"
-        android:src="@drawable/icono"
+        android:src="@drawable/icon"
         android:layout_width="24dip"
         android:layout_height="24dip"
+        android:layout_gravity="center"
+        android:padding="5dip"
+        android:gravity="center_horizontal|center_vertical"
       />
 
       <TextView
