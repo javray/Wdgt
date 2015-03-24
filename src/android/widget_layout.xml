@@ -37,7 +37,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:textColor="#fff"
-          android:paddingLeft="10dp"
+          android:paddingLeft="34dp"
           android:background="#ef473a"
           android:text="EmergenciAA" >
       </TextView>
