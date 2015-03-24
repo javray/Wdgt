@@ -36,8 +36,8 @@
           style="@android:style/TextAppearance.Medium"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginLeft="34dp"
           android:textColor="#fff"
-          android:marginLeft="34dp"
           android:background="#ef473a"
           android:text="EmergenciAA" >
       </TextView>
