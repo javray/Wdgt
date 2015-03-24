@@ -233,7 +233,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     sData.clear();
 
     sData.add(new DataElement(nombre, 0, foto));
-    sData.add(new DataElement(textos.getJSONObject("Persona de contacto").getString(idioma), 1));
+    try {
+      sData.add(new DataElement(textos.getJSONObject("Persona de contacto").getString(idioma), 1));
+    }
+    catch (Exception e) {
+      sData.add(new DataElement("Persona de contacto", 1));
+    }
     sData.add(new DataElement(contacto, 0));
     sData.add(new DataElement(telefono1, 0));
 
