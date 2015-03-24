@@ -135,7 +135,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     }
 
     if (SharedPref.contains("idioma")) {
-      nombre = SharedPref.getString("idioma", "");
+      idioma = SharedPref.getString("idioma", "");
     }
 
     if (SharedPref.contains("nombre")) {
