@@ -107,7 +107,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   public void onDataSetChanged() {
     Log.v("Wdgt", "onDataSetChanged");
     SharedPreferences SharedPref;
-    JSONObject = textos = null;
+    JSONObject textos = null;
     String idioma = "es";
     String nombre = "";
     Uri foto;
