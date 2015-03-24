@@ -12,6 +12,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
 
+      <!--
       <ImageView
         android:id="@+id/icono"
         android:src="@drawable/icon"
@@ -21,6 +22,15 @@
         android:padding="5dip"
         android:gravity="center_horizontal|center_vertical"
       />
+      -->
+      <Button
+            android:id="@+id/icono"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon"
+            android:text="" />
 
       <TextView
           style="@android:style/TextAppearance.Medium"
