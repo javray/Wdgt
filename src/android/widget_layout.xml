@@ -14,7 +14,7 @@
 
       <ImageView
         android:id="@+id/icono"
-        android:src="@drawable/icon"
+        android:src="@drawable/icono"
         android:layout_width="24dip"
         android:layout_height="24dip"
         android:layout_alignParentLeft="true"
