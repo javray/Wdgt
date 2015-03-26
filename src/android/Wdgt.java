@@ -56,4 +56,10 @@ public class Wdgt extends AppWidgetProvider {
     }
     super.onUpdate(context, appWidgetManager, appWidgetIds);
   }
+
+  @Override
+  public void onReceive(Context context, Intent intent) {
+    super.onReceive(context, intent);
+    Log.v("Wdgt", "onReceive");
+  }
 }
