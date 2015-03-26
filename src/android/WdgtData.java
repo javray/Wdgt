@@ -63,6 +63,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       row.setTextViewText(R.id.nombre, el.text);
       row.setTextViewText(R.id.sip, el.sip);
       row.setImageViewUri(R.id.foto, el.img);
+      Log.v("Wdgt-", el.sip);
     }
     else {
       row = new RemoteViews(ctxt.getPackageName(), R.layout.row);
