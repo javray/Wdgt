@@ -32,6 +32,7 @@
       <source-file src="src/android/ic_sync_button.png" target-dir="res/drawable"/>
       <source-file src="src/android/widget_layout.xml" target-dir="res/layout"/>
       <source-file src="src/android/row.xml" target-dir="res/layout"/>
+      <source-file src="src/android/row_sip.xml" target-dir="res/layout"/>
       <source-file src="src/android/foto.xml" target-dir="res/layout"/>
       <source-file src="src/android/Wdgt.java" target-dir="src/com/javray/cordova/plugin/Wdgt" />
       <source-file src="src/android/WdgtData.java" target-dir="src/com/javray/cordova/plugin/Wdgt" />

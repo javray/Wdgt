@@ -62,7 +62,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       row.setImageViewUri(R.id.foto, el.img);
     }
     else {
-      row = new RemoteViews(ctxt.getPackageName(), R.layout.row);
+      row = new RemoteViews(ctxt.getPackageName(), el.text.contains("SIP:") ? R.layout.row_sip : R.layout.row);
       row.setTextViewText(android.R.id.text1, el.text);
 
       row.setInt(android.R.id.text1, "setBackgroundColor", android.graphics.Color.parseColor(el.header == 1 ? "#F5F5F5" : "white"));
