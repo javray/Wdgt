@@ -38,6 +38,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   private Context ctxt=null;
   private int appWidgetId;
   private static final ArrayList<DataElement> sData = new ArrayList<DataElement>();
+  private static final int actualizando = 0;
 
   public WdgtData(Context ctxt, Intent intent) {
       this.ctxt=ctxt;
@@ -105,7 +106,16 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
   @Override
   public void onDataSetChanged() {
+
     Log.v("Wdgt", "onDataSetChanged");
+    Log.v("Wdgt", "Actualizando: " + Integer.toString(actualizando));
+
+    if (actualizando == 1) {
+      return;
+    }
+
+    actualizando = 1;
+
     SharedPreferences SharedPref;
     JSONObject textos = null;
     String idioma = "es";
@@ -391,6 +401,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       sData.add(new DataElement(otrosDatos, 0));
     }
 
+    actualizando = 0;
     Log.v("WdgtData", Integer.toString(sData.size()));
   }
 }
