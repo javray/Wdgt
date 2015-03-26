@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:paddingLeft="86dip"
+    android:paddingLeft="88dip"
     android:minHeight="25dip"
     android:textColor="#000"
 />
