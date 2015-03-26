@@ -38,7 +38,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
   private Context ctxt=null;
   private int appWidgetId;
   private static final ArrayList<DataElement> sData = new ArrayList<DataElement>();
-  private static final int actualizando = 0;
+  private int actualizando = 0;
 
   public WdgtData(Context ctxt, Intent intent) {
       this.ctxt=ctxt;
