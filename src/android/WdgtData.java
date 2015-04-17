@@ -156,7 +156,12 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
     }
 
     if (SharedPref.contains("sip")) {
-      sip = textos.getJSONObject("SIP").getString(idioma) + ": " + SharedPref.getString("sip", "");
+      try {
+        sip = textos.getJSONObject("SIP").getString(idioma) + ": " + SharedPref.getString("sip", "");
+      }
+      catch (Exception e) {
+        sip = "SIP: " + SharedPref.getString("sip", "");
+      }
     }
 
     if (SharedPref.contains("foto")) {
