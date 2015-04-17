@@ -61,9 +61,8 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
     if (el.img != null) {
       row = new RemoteViews(ctxt.getPackageName(), R.layout.foto);
-      row.setTextViewText(R.id.nombre, el.text);
+      row.setTextViewText(R.id.nombre, el.text + "\n" + el.text2);
       row.setImageViewUri(R.id.foto, el.img);
-      row.setTextViewText(R.id.sip, el.text2);
     }
     else {
       row = new RemoteViews(ctxt.getPackageName(), el.text.contains("SIP:") ? R.layout.row_sip : R.layout.row);
