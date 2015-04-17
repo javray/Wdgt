@@ -20,16 +20,18 @@ class DataElement {
   String text;
   int header;
   Uri img = null;
+  String text2 = null;
 
   DataElement(String t, int h) {
     text = t;
     header = h;
   }
 
-  DataElement(String t, int h, Uri i) {
+  DataElement(String t, int h, Uri i, String t2) {
     text = t;
     header = h;
     img = i;
+    text2 = t2;
   }
 }
 
@@ -61,6 +63,7 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
       row = new RemoteViews(ctxt.getPackageName(), R.layout.foto);
       row.setTextViewText(R.id.nombre, el.text);
       row.setImageViewUri(R.id.foto, el.img);
+      row.setTextViewText(R.id.sip, el.text2);
     }
     else {
       row = new RemoteViews(ctxt.getPackageName(), el.text.contains("SIP:") ? R.layout.row_sip : R.layout.row);
@@ -247,8 +250,8 @@ public class WdgtData implements RemoteViewsService.RemoteViewsFactory {
 
     sData.clear();
 
-    sData.add(new DataElement(nombre, 0, foto));
-    sData.add(new DataElement(sip, 0));
+    sData.add(new DataElement(nombre, 0, foto, sip));
+    //sData.add(new DataElement(sip, 0));
 
     try {
       sData.add(new DataElement(textos.getJSONObject("Persona de contacto").getString(idioma), 1));
