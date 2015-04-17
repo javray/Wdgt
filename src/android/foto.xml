@@ -6,11 +6,11 @@
 
     <ImageView
       android:id="@+id/foto"
-      android:layout_width="80dip"
-      android:layout_height="80dip"
-      android:layout_gravity="center"
+      android:layout_width="100dip"
+      android:layout_height="100dip"
+      android:layout_gravity="left"
       android:padding="5dip"
-      android:gravity="center_horizontal|center_vertical" >
+      android:gravity="center_vertical" >
     </ImageView>
     <TextView
         android:id="@+id/nombre"
